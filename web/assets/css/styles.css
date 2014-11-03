@@ -1,0 +1,55 @@
+@charset "utf-8";
+/* CSS Document */
+* { margin:0; padding:0; }
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.pad,
+.pad__loop {
+  display: -webkit-flex;
+   display: flex;
+   -webkit-align-items: center;
+   align-items: center;
+   -webkit-justify-content: center;
+   justify-content: center;
+   /* You can set flex-wrap and flex-direction individually */
+   -webkit-flex-direction: row;
+   flex-direction: row;
+   -webkit-flex-wrap: wrap;
+   flex-wrap: wrap;
+   /* Or do it all in one line with flex flow */
+   -webkit-flex-flow: row wrap;
+   flex-flow: row wrap;
+   /* tweak the where items line up on the row */
+   /* valid values are: flex-start, flex-end, space-between, space-around, stretch */
+   -webkit-align-content: flex-end;
+   align-content: flex-end;
+}
+
+.pad__button,
+.pad__loop {
+  padding: 1em;
+  margin:1em;
+  width: 24vw;
+  height:25vh;
+  color: white;
+  font-weight: bold;
+  font-size: 2vw;
+  text-align: center;
+}
+
+.pad__loop {
+   -webkit-justify-content: space-between;
+   justify-content:space-between;
+   padding:0;
+   }
+
+.pad__loop .pad__button { width:calc(50% - 1em); margin:0; font-size:1vw; display:inline; }
+
+.pad__button { background-color: tomato; }
+.pad__button--kick { background-color:CornflowerBlue; }
+.pad__button--hihat { background-color:LemonChiffon; color:#333; }
