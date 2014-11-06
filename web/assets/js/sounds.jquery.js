@@ -14,38 +14,35 @@ blip.sampleLoader()
 
 function loaded() {
     var defaultTempo = '140';
-    
-    var soundBassdrum = blip.clip().sample('bassdrum'),
-//        soundHit = blip.clip().sample('hit'),
-//        soundKick01 = blip.clip().sample('kick01'),
-        soundKick02 = blip.clip().sample('kick02'),
-        soundKick03 = blip.clip().sample('kick03'),
-        soundHihat01 = blip.clip().sample('hihat01');
-        
-    var loopBassdrum = blip.loop()
-        .tempo(defaultTempo)
-        .tick(function (t) {
-            soundBassdrum.play(t)
-        }),
-        
-        loopsoundKick03 = blip.loop()
-        .tempo(defaultTempo)
-        .tick(function (t) {
-            soundKick03.play(t)
-        });
 
     var padItemName = 'sound',
         padItem = $('.'+padItemName),
         padLoopPlay = $('.'+padItemName+'--play'),
         padLoopPause = padLoopPlay.next('.'+padItemName+'--pause');
         
-        padItem.on('click', function(){
-            var actualThis = $(this),
-                padSound = actualThis.data('sound'),
-                padSoundTime = actualThis.data('sound-time'),
-                playSound = blip.clip().sample(padSound);
-                playSound.play(padSoundTime);
-        });
+    padItem.on('click', function(){
+        var actualThis = $(this),
+            padSound = actualThis.data('sound'),
+            padSoundTime = actualThis.data('sound-time'),
+            playSound = blip.clip().sample(padSound);
+
+            playSound.play(padSoundTime);
+    });
+
+    padLoopPlay.on('click', function(){
+        var actualThis = $(this),
+            padSound = actualThis.data('sound'),
+            padSoundTime = actualThis.data('sound-time'),
+            playLoop = blip.loop().tempo(defaultTempo).tick(
+                            function (t) {
+                              padSound.play(t)
+                            }
+                        );
+
+        playLoop.start(0);
+    });
+
+
         
     /**document.getElementById('pad__drum').addEventListener('click', function () {
         // play the clip immediately
