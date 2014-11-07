@@ -40,6 +40,7 @@ function loaded() {
         loopBassdrum.start(0);
     });
     document.getElementById('pad__drum--pause').addEventListener('click', function () {
+        console.log(loopBassdrum);
         loopBassdrum.stop();
     });
     
