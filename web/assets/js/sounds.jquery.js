@@ -17,8 +17,28 @@ function loaded() {
 
     var padItemName = 'sound',
         padItem = $('.'+padItemName),
-        padLoopPlay = $('.'+padItemName+'--play'),
-        padLoopPause = $('.'+padItemName+'--pause');
+        padLoopPlayName = padItemName+'--play',
+        padLoopPauseName = padItemName+'--pause',
+        padLoopPlay = $('.'+padLoopPlayName),
+        padLoopPause = $('.'+padLoopPauseName);
+
+
+
+
+    var soundBassdrum = blip.clip().sample('bassdrum'),
+      soundHit = blip.clip().sample('hit'),
+      soundKick01 = blip.clip().sample('kick01'),
+      soundKick02 = blip.clip().sample('kick02'),
+      soundKick03 = blip.clip().sample('kick03'),
+      soundHihat01 = blip.clip().sample('hihat01');
+
+    var loopBassdrum = blip.loop()
+      .tempo(defaultTempo)
+      .tick(function (t) {
+          soundBassdrum.play(t)
+      })
+
+
         
     padItem.on('click', function(){
         var actualThis = $(this),
@@ -40,13 +60,35 @@ function loaded() {
               .tick(function (t) {
                   playSound.play(t)
               });
-        if (actualThis.hasClass('is-playing')){
-            // @TODO Doesnt work
-            playLoop.stop();
-            actualThis.removeClass('is-playing');
-        } else {
-            playLoop.start(padSoundTime);
-            actualThis.addClass('is-playing');
-        }
+
+      playLoop.start(padSoundTime);
+      actualThis.removeClass(padLoopPlayName);
+      actualThis.addClass(padLoopPauseName);
+
     });
+
+  // @TODO doesnt work
+  padLoopPause.on('click', function(){
+    var actualThis = $(this),
+      isPlaying = 'false',
+      padSound = actualThis.data('sound'),
+      padSoundTime = actualThis.data('sound-time'),
+      playSound = blip.clip().sample(padSound),
+      playLoop = blip.loop()
+        .tempo(defaultTempo)
+        .tick(function (t) {
+          playSound.play(t)
+        });
+
+    playLoop.stop();
+    actualThis.removeClass(padLoopPauseName);
+    actualThis.addClass(padLoopPlayName);
+
+  });
+
+
+
+
+
+
 }
