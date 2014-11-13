@@ -53,3 +53,12 @@ html {
 .pad__button { background-color: tomato; }
 .pad__button--kick { background-color:CornflowerBlue; }
 .pad__button--hihat { background-color:LemonChiffon; color:#333; }
+
+
+@-webkit-keyframes pulse
+{
+    0% {background-color: #000;}
+    50% {background-color: tomato;}
+    100% {background-color: #000;}
+}
+.sound--pause {  -webkit-animation: pulse 0.857142s infinite; }
