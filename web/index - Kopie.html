@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Unbenanntes Dokument</title>
+<link href="assets/css/styles.css" rel="stylesheet" type="text/css" media="screen">
+</head>
+
+<body>
+<div class="pad">
+    <button class="pad__button sound--play" id="pad__drum">Drum Loop</button>
+
+    <button 
+        class="pad__button pad__button--kick sound" 
+        data-sound="hit"
+        data-sound-time="0"
+        >Hit</button>
+    <button 
+        class="pad__button pad__button--kick sound" 
+        data-sound="kick01"
+        data-sound-time="0">Acoustic Kick 01</button>
+    <button
+            class="pad__button pad__button--hihat sound"
+            data-sound="hihat01"
+            data-sound-time="0">HiHat 02</button>
+
+    <button
+            class="pad__button sound"
+            data-sound="kick03"
+            data-sound-time="0">Acoustic Kick 03</button>
+</div>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="assets/js/blip.min.js"></script>
+<script src="assets/js/sounds.js"></script>
+</body>
+</html>

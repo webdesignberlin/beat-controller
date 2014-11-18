@@ -10,6 +10,14 @@ $(document).ready(function() {
       'kick03': 'assets/sounds/pad/musicradar-drum-samples/Drum-Kits/Kit_15-Electro/CYCdh_ElecK05-Kick02.wav',
 
       'hihat01': 'assets/sounds/pad/musicradar-drum-samples/Assorted-Hits/Hi-Hats/Acoustic/Acoustic-Hat-01.wav',
+      'hihat02': 'assets/sounds/pad/musicradar-drum-samples/Assorted-Hits/Hi-Hats/Acoustic/Acoustic-Hat-02.wav',
+      'hihat03': 'assets/sounds/pad/musicradar-drum-samples/Assorted-Hits/Hi-Hats/Acoustic/Acoustic-Hat-03.wav',
+
+      'cymbals01': 'assets/sounds/pad/musicradar-drum-samples/Assorted-Hits/Cymbals/CYCdh_Crash-01.wav',
+      'cymbals02': 'assets/sounds/pad/musicradar-drum-samples/Assorted-Hits/Cymbals/CYCdh_Crash-02.wav',
+      'cymbals03': 'assets/sounds/pad/musicradar-drum-samples/Assorted-Hits/Cymbals/CYCdh_MultiCrashHi-03.wav',
+
+      'blubb': 'assets/sounds/pad/male.mp3'
   })
       .done(loaded)
       .load();
@@ -34,7 +42,7 @@ $(document).ready(function() {
 
 
 
-    padLoopPlay.on('click', function(){
+   /* padLoopPlay.on('click', function(){
 
       var padSound = $(this).data('sound'),
           padSoundTime = $(this).data('sound-time');
@@ -51,19 +59,22 @@ $(document).ready(function() {
       };
 
 
-    });
+    });*/
+
 
     padItem.on('click', function(){
+
       var actualThis = $(this),
           padSound = actualThis.data('sound'),
           padSoundTime = actualThis.data('sound-time'),
           playSound = blip.clip().sample(padSound);
 
+
       playSound.play(padSoundTime);
     });
-
-
 
   };
 
 });
+
+
